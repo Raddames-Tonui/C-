@@ -233,13 +233,78 @@ void usingSharedSmartPointers() {
 *  Cleaner code via RAII (Resource Acquisition Is Initialization).
 */
 
+class Friend;
+
+class VehicleWithFriend {
+private:
+    string name;
+    shared_ptr<Friend> bestFriend;  // Creates a potential cycle
+
+public:
+    VehicleWithFriend(string n) : name(n) {
+        cout << "VehicleWithFriend created: " << name << endl;
+    }
+
+    ~VehicleWithFriend() {
+        cout << "VehicleWithFriend destroyed: " << name << endl;
+    }
+
+    void setFriend(shared_ptr<Friend> f) {
+        bestFriend = f;
+    }
+
+    void greet() {
+        cout << "Vehicle " << name << " says hello." << endl;
+    }
+};
+
+class Friend {
+private:
+    string friendName;
+    weak_ptr<VehicleWithFriend> vehicleRef;  // BREAKS CYCLE
+
+public:
+    Friend(string n) : friendName(n) {
+        cout << "Friend created: " << friendName << endl;
+    }
+
+    ~Friend() {
+        cout << "Friend destroyed: " << friendName << endl;
+    }
+
+    void setVehicle(shared_ptr<VehicleWithFriend> v) {
+        vehicleRef = v; // weak_ptr, does not increase ref count
+    }
+
+    void checkVehicle() {
+        if (auto locked = vehicleRef.lock()) {
+            locked->greet(); // Safe access
+        } else {
+            cout << "Vehicle no longer exists.\n";
+        }
+    }
+};
+
+void usingWeakSmartPointers() {
+    shared_ptr<VehicleWithFriend> vehicle = make_shared<VehicleWithFriend>("Bike");
+    shared_ptr<Friend> rider = make_shared<Friend>("John");
+
+    vehicle->setFriend(rider);
+    rider->setVehicle(vehicle);
+
+    rider->checkVehicle(); // Should work fine
+
+    cout << "Use count of vehicle: " << vehicle.use_count() << endl;
+} // No memory leak, both objects properly destructed
 
 int main() {
-    testVoidPointerExample();
+    // testVoidPointerExample();
    // basicClassFunction();
     // danglingPointerExample();
     // usingUniqueSmartPointers();
     // usingSharedSmartPointers();
+    usingWeakSmartPointers();
+
 
 
     // Vehicle::totalVehicles();
