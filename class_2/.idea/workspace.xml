@@ -19,7 +19,7 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="pointers" targetName="pointers" />
+      <config projectName="class_2" targetName="class_2" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -28,7 +28,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7fbdeea-1be0-4eda-b754-eda97ecd6635" name="Changes" comment="" />
+    <list default="true" id="5edc9039-a510-491c-866f-442ce7189248" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../arrays/.idea/arrays.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../arrays/Dog.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../arrays/Dog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arrays/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../arrays/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../memoryAllocation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../memoryAllocation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pointers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pointers/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +45,9 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
     <option name="majorVersion" value="2025" />
@@ -45,72 +55,65 @@
     <option name="productBranch" value="Classic" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
+  "associatedIndex": 1
 }]]></component>
-  <component name="ProjectId" id="30MjbAuGJON0g5i99hC7EDgIMZq" />
+  <component name="ProjectId" id="30Y6VqFWk53b6HIlRpAWyXyJ1w6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "C/C++ File.main.cpp.executor": "Run",
+    "CMake Application.class_2.executor": "Coverage",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/development/c++/pointers/main.cpp",
+    "onboarding.tips.debug.path": "C:/development/c++/class_2/main.cpp",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="C/C++ File.main.cpp">
+  <component name="RunManager">
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pointers" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="pointers" TARGET_NAME="pointers" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="pointers" RUN_TARGET_NAME="pointers">
+    <configuration name="class_2" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="class_2" TARGET_NAME="class_2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="class_2" RUN_TARGET_NAME="class_2">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="pointers" TARGET_NAME="main.cpp" CONFIG_NAME="main.cpp">
-      <option name="sourceFile" value="main.cpp" />
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="C/C++ File.main.cpp" />
-      <item itemvalue="CMake Application.pointers" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="C/C++ File.main.cpp" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f7fbdeea-1be0-4eda-b754-eda97ecd6635" name="Changes" comment="" />
-      <created>1753444405604</created>
+      <changelist id="5edc9039-a510-491c-866f-442ce7189248" name="Changes" comment="" />
+      <created>1753792185173</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1753444405604</updated>
-      <workItem from="1753444411558" duration="389000" />
+      <updated>1753792185173</updated>
+      <workItem from="1753792187195" duration="8619000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
   </component>
 </project>

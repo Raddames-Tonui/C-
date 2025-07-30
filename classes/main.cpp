@@ -82,7 +82,8 @@ void basicClassFunction() {
     Vehicle::totalVehicles();
 }
 
-// Class with dangling pointer after destruction
+// ------- DANGLING POINTER --------
+// after destruction
 void danglingPointerExample() {
     Vehicle* vptr = new Vehicle("Semi", 10); // Dynamically allocated space
     vptr-> showDetails();
@@ -105,6 +106,12 @@ void danglingPointerExample() {
  *  It must be cast back to a specific type before usage.
  */
 void voidPointerExample(void* data, const string& type) {
+/**
+ *  Casting a void* to an int*
+ *  (int*)data  => This tells the compiler: "Trust me, data points to an int."
+ *  *((int*)data) => Dereferencing the resulting int*
+ *  The outer * retrieves the actual value at that memory location.
+ */
     if (type == "int")
         cout << *((int*)data) << endl;
     else if (type == "float")
@@ -117,17 +124,63 @@ void voidPointerExample(void* data, const string& type) {
         cout << "Unknown type!" << endl;
 }
 
+// Void pointer to an array
+void voidPointerArrayExample(void* data, const string& type, int length) {
+    if (type == "int") {
+        int* arr = (int*)data;
+        for (int i = 0; i < length; ++i)
+            cout << arr[i] << " ";
+        cout << endl;
+    }
+    else if (type == "float") {
+        float* arr = (float*)data;
+        for (int i = 0; i < length; ++i)
+            cout << arr[i] << " ";
+        cout << endl;
+    }
+    else if (type == "string") {
+        string* arr = (string*)data;
+        for (int i = 0; i < length; ++i)
+            cout << arr[i] << " ";
+        cout << endl;
+    }
+    else if (type == "char") {
+        char* arr = (char*)data;
+        for (int i = 0; i < length; ++i)
+            cout << arr[i] << " ";
+        cout << endl;
+    }
+    else
+        cout << "Unknown type!" << endl;
+}
+
+
 void testVoidPointerExample() {
     int age = 10;
     float height = 5.67f;
     string name = "Raddames";
     char bloodtype = 'O';
+    char grade = 'A';
 
     voidPointerExample(&age, "int");
     voidPointerExample(&height, "float");
     voidPointerExample(&name, "string");
     voidPointerExample(&bloodtype, "char");
+    voidPointerExample(&grade, "char");
+
+    // Using arrays
+    int nums[] = {1, 2, 3, 4, 5};
+    float fnums[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+    char chars[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+    string names[] = {"james", "hellen", "beatrice"};
+
+    voidPointerArrayExample(nums, "int", 5);
+    voidPointerArrayExample(fnums, "float", 5);
+    voidPointerArrayExample(chars, "char", 8);
+    voidPointerArrayExample(names, "string", 3);
+
 }
+
 
 
 /*
@@ -173,18 +226,20 @@ void usingSharedSmartPointers() {
 /*
 *  --- WEAK SMART POINTERS ---
 *  non-owning reference to an object managed by a shared_ptr
-*  Is used to observe or temporarily access a shared_ptr's object.
+*   must call .lock() to access the object as a temporary shared_ptr
+*  If the object has already been deleted, .lock() returns nullptr
 *  Helps prevent cyclic references, which cause memory leaks.
-*
+*  // A -> B -> A (cycle), both are shared_ptrs => memory leak!
+*  Cleaner code via RAII (Resource Acquisition Is Initialization).
 */
 
 
 int main() {
-    // testVoidPointerExample();
+    testVoidPointerExample();
    // basicClassFunction();
     // danglingPointerExample();
-    usingUniqueSmartPointers();
-    usingSharedSmartPointers();
+    // usingUniqueSmartPointers();
+    // usingSharedSmartPointers();
 
 
     // Vehicle::totalVehicles();

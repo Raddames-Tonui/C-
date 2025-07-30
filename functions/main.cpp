@@ -18,6 +18,7 @@ void useReference (int& a, int& b, int& c) {
 
 // Pass by pointer
 void usePointer (int* a, int* b, int* c) {
+    // Got to dereference to get value before manipulation
     *a*=2;
     *b*=2;
     *c*=2;
@@ -76,7 +77,7 @@ void staticFunc() {
 
 // VIRTUAL FUNCTION -
 // Allows runtime polymorphism — the actual function called depends on the object type.
-//A virtual function is a function in a base class meant to be overridden in derived classes.
+// A virtual function is a function in a base class meant to be overridden in derived classes.
 // But it can have a body in the base.
 class Base {
 public:

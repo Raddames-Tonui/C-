@@ -10,10 +10,10 @@ public:
 
 class Circle : public Shape {
 private:
-    int* data;
+    int* data{};
 public:
     Circle() {
-        data = new int[100];
+        data = new int[10];
         cout << "Circle created \n ";
     }
 
@@ -25,8 +25,10 @@ public:
 
 int main() {
 
-    Shape* ptr = new Circle();  // base pointer to derived object
+    const Shape* ptr = new Circle();  // base pointer to derived object
+
     delete ptr;
+    ptr = nullptr;
 
     return 0;
 }
