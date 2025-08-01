@@ -107,9 +107,9 @@ void threeMultiDimensionalArray() {
 
 
 void passing3DArray(int* arr, int x, int y, int z) {
-    for (int i = 0; i < x; i++)
-        for (int j = 0; j < y; j++)
-            for (int k = 0; k < z; k++)
+    for (int i = 0; i < x; ++i)
+        for (int j = 0; j < y; ++j)
+            for (int k = 0; k < z; ++k)
                 cout << arr[i * y * z + j * z + k] << " ";
 }
 
@@ -127,7 +127,7 @@ int main() {
     // twomultiDimensionalArray();
     // threeMultiDimensionalArray();
 
-    testPassing2DArray();
-    // testPassing3DArray();
+    // testPassing2DArray();
+    testPassing3DArray();
     return 0;
 }
