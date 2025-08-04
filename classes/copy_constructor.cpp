@@ -39,10 +39,9 @@ public:
 
 
     // 5. Destructor
-    ~Person() {
+   ~Person() {
         delete[] name;
     }
-
     void display() {
         cout << "Name: " << name << endl;
     }
