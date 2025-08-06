@@ -33,6 +33,14 @@ int main() {
     return 0;
 }
 
+
+
+
+
+
+
+
+
 // What happens on delete ptr;
 // Since Shape has a virtual destructor:
     // 1. Compiler sees delete ptr;

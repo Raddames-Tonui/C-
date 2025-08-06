@@ -14,7 +14,7 @@ used for returning results from functions.
 using namespace std;
 
 int main() {
-    std::string author = "Samuel Clemens";
+    string author = "Samuel Clemens";
     string& penName = author;
 
     cout << penName << endl;

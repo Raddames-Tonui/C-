@@ -47,7 +47,7 @@ public:
         buffer[length] = '\0';
     }
 
-    int strLength(const char* str) {
+    static int strLength(const char* str) {
         int count = 0;
         while (str[count] != '\0') count++;
         return count;
@@ -89,8 +89,8 @@ public:
 
     // []
     char& operator[](int index) {
-        static char dummy = '\0';
         if (index < 0 || index >= length) {
+            char dummy = '\0';
             cout << "index out of range" << endl;
             return dummy;
         }
@@ -116,7 +116,7 @@ int main() {
     sb += "World!";
     sb.print();
 
-    StringBuilder sb2 = sb + "This is a test";
+    StringBuilder sb2 = sb + " This is a test";
     sb.print();
     sb2.print();
 
@@ -133,8 +133,8 @@ int main() {
     }
 
     // []
-    cout << "index at: " << sb[0] << endl;
-    cout << "index at: " << sb[1] << endl;
+    cout << "index : " << sb[0] << endl;
+    cout << "index : " << sb[1] << endl;
 
     return 0;
 }

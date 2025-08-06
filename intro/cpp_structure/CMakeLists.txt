@@ -3,4 +3,5 @@ project(shared_pointers)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(shared_pointers main.cpp)
+add_executable (TestCard TestCard.cpp)
+
