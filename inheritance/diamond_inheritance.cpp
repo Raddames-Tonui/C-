@@ -4,30 +4,29 @@ using namespace std;
 
 /**
  * Base class Animal, virtually inherited to allow diamond inheritance.
- * Contains a raw pointer member `name` to demonstrate manual memory management.
  */
 class Animal {
 protected:
-    string* name; // raw pointer to dynamically allocated string
+    string* name;
 
 public:
     // Explicit constructor to avoid accidental implicit conversions
     explicit Animal(const string& name) {
-        this->name = new string(name); // allocate string on heap
+        this->name = new string(name);
         cout << "Animal constructor for: " << *this->name << endl;
     }
 
     // Copy constructor (deep copy)
     Animal(const Animal& other) {
-        name = new string(*other.name); // deep copy
+        name = new string(*other.name);
         cout << "Animal copy constructor for: " << *name << endl;
     }
 
     // Copy assignment operator (deep copy)
     Animal& operator=(const Animal& other) {
         if (this != &other) {
-            delete name; // delete current
-            name = new string(*other.name); // deep copy
+            delete name;
+            name = new string(*other.name);
         }
         cout << "Animal assignment for: " << *name << endl;
         return *this;
@@ -38,12 +37,7 @@ public:
         cout << *name << " makes a sound (from Animal)." << endl;
     }
 
-    // Getter to safely access name
-    /**
-     *
-     * @return If someone calls getName() and ignores the returned value,
-     * the compiler may issue a warning.
-     */
+
     [[nodiscard]] string getName() const {
         return *name;
     }
@@ -51,7 +45,7 @@ public:
     // Virtual destructor to ensure derived destructors are called
     virtual ~Animal() {
         cout << "Animal destructor for: " << *name << endl;
-        delete name; // free allocated memory
+        delete name;
     }
 
     void showAbilities();
@@ -59,7 +53,6 @@ public:
 
 /**
  * Flyer class inherits virtually from Animal to support diamond inheritance.
- * Adds a raw pointer member `wingType`.
  */
 class Flyer : virtual public Animal {
 protected:
@@ -81,25 +74,22 @@ public:
     // Copy assignment operator
     Flyer& operator=(const Flyer& other) {
         if (this != &other) {
-            Animal::operator=(other); // base copy
+            Animal::operator=(other);
             delete wingType;
             wingType = new string(*other.wingType);
         }
         cout << "Flyer assignment for: " << getName() << endl;
-        return *this;   // Returns a reference to the current object (not a pointer, and not a copy)
+        return *this;
     }
 
-    // Additional behavior
     virtual void fly() const {
         cout << getName() << " is flying with " << *wingType << " wings." << endl;
     }
 
-    // Override speak
     void speak() const override {
         cout << getName() << " says: I can fly!" << endl;
     }
 
-    // Destructor to free wingType
     ~Flyer() override {
         cout << "Flyer destructor for: " << getName() << endl;
         delete wingType;
@@ -110,22 +100,21 @@ public:
 
 /**
  * Swimmer class inherits virtually from Animal.
- * Adds a raw pointer member `fins` (integer).
  */
 class Swimmer : virtual public Animal {
 protected:
-    int* fins; // pointer to int for fin count
+    int* fins;
 
 public:
-    Swimmer(const string& name, int finsCount)
+    Swimmer(const string& name, const int finsCount)
         : Animal(name) {
-        fins = new int(finsCount); // allocate on heap
+        fins = new int(finsCount);
         cout << "Swimmer constructor for: " << getName() << ", Fins: " << *fins << endl;
     }
 
     // Copy constructor
     Swimmer(const Swimmer& other) : Animal(other) {
-        fins = new int(*other.fins); // deep copy
+        fins = new int(*other.fins);
         cout << "Swimmer copy constructor for: " << getName() << endl;
     }
 
@@ -140,17 +129,14 @@ public:
         return *this;
     }
 
-    // Additional behavior
     virtual void swim() const {
         cout << getName() << " is swimming with " << *fins << " fins." << endl;
     }
 
-    // Override speak
     void speak() const override {
         cout << getName() << " says: I can swim!" << endl;
     }
 
-    // Destructor to free fins
     ~Swimmer() override {
         cout << "Swimmer destructor for: " << getName() << endl;
         delete fins;
@@ -159,7 +145,6 @@ public:
 
 /**
  * Duck inherits from both Flyer and Swimmer — demonstrating diamond inheritance.
- * Adds an extra pointer member `weight`.
  */
 class Duck : public Flyer, public Swimmer {
 private:
@@ -219,27 +204,21 @@ public:
     }
 };
 
-/**
- * Demonstrates raw pointer parameter — used polymorphically
- */
-void inspect(Animal* a) {
-    cout << "[Raw Pointer Inspect] ";
-    a->speak(); // virtual function call
-}
+
 
 int main() {
     cout << "\n=== 1. Stack Object Creation ===" << endl;
-    Duck d1("Daffy", "Feathery", 2, 4.5); // stack allocation
+    Duck d1("Daffy", "Feathery", 2, 4.5);
 
     cout << "\n=== 2. Heap Object Creation (Raw Pointer) ===" << endl;
-    Duck* d2 = new Duck("Donald", "Short", 5, 3.9); // heap allocation
+    Duck* d2 = new Duck("Donald", "Short", 5, 3.9);
 
     cout << "\n=== 3. Accessing Member Functions ===" << endl;
     cout << "-> d1 speaks: ";
-    d1.speak(); // via object
+    d1.speak();
 
     cout << "-> d2 speaks: ";
-    d2->speak(); // via pointer
+    d2->speak();
 
     cout << "\n=== 4. Calling Custom Behaviors ===" << endl;
     d1.showAbilities(); // swim + fly
@@ -249,6 +228,7 @@ int main() {
     Duck d3 = d1; // invokes copy constructor
     d1.showDetails();
     d3.showDetails();
+    d1.Swimmer::swim();
     d3.Swimmer::swim();
 
     cout << "\n=== 6. Assignment Operator ===" << endl;
@@ -263,7 +243,7 @@ int main() {
 
     cout << "\n=== 8. Reference Usage ===" << endl;
     Duck& ref = d1;
-    ref.speak(); // same as d1
+    ref.speak();
     Duck& ref2 = *d2;
     ref2.speak();
 
@@ -272,10 +252,9 @@ int main() {
     a->speak(); // dynamic binding — Duck::speak()
 
     cout << "\n=== 10. Function Chaining ===" << endl;
-    // Not meaningful here, but we’ll simulate assignment chaining
     Duck d4("Temp", "Stub", 0, 1.0);
     (d4 = d1) = d3;
-    d4.speak(); // should now match d3
+    d4.speak();
 
     cout << "\n=== 11. Clean up heap object ===" << endl;
     delete d2;
@@ -288,6 +267,27 @@ int main() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// /**
+//  * Demonstrates raw pointer parameter — used polymorphically
+//  */
+// void inspect(Animal* a) {
+//     cout << "[Raw Pointer Inspect] ";
+//     a->speak(); // virtual function call
+// }
 
 // int main() {
 //     // cout << "=== Creating Duck ===\n";
