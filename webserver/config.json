@@ -7,15 +7,15 @@
   ],
   "db_clients": [
     {
-      "name": "postgresql",
+      "name": "default",
       "rdbms": "postgresql",
       "host": "127.0.0.1",
-      "dbname": "online_exams",
       "port": 5432,
+      "dbname": "online_exams",
       "user": "admin",
       "password": "admin",
-      "is_fast" : false,
-      "max_connections": 16
+      "is_fast": false,
+      "number_of_connections": 5
     }
   ]
 }

@@ -36,3 +36,9 @@ Web_service/
 ├── CMakeLists.txt
 ├── test_users.cpp
 └── test_products.cpp
+
+
+"SELECT p.pupil_firstname, p.pupil_lastname, c.class_name "
+"FROM pupils p "
+"INNER JOIN classes c ON p.class_id = c.class_id "
+"ORDER BY pupil_firstname DESC;";

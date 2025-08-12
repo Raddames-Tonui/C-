@@ -143,6 +143,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=webserver
 
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
+
 //RC compiler
 CMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x64/rc.exe
 
@@ -252,6 +267,22 @@ OPENSSL_APPLINK_SOURCE:FILEPATH=C:/development/vcpkg/installed/x64-windows/inclu
 
 //Path to a file.
 OPENSSL_INCLUDE_DIR:PATH=C:/development/vcpkg/installed/x64-windows/include
+
+//The Set the PostgreSQL_INCLUDE_DIR cmake cache entry to the top-level
+// directory containing the PostgreSQL include directories. E.g
+// /usr/local/include/PostgreSQL/8.4 or C:/Program Files/PostgreSQL/8.4/include
+PostgreSQL_INCLUDE_DIR:PATH=C:/development/vcpkg/installed/x64-windows/include
+
+//Path to a library.
+PostgreSQL_LIBRARY_DEBUG:FILEPATH=C:/development/vcpkg/installed/x64-windows/debug/lib/libpq.lib
+
+//Path to a library.
+PostgreSQL_LIBRARY_RELEASE:FILEPATH=C:/development/vcpkg/installed/x64-windows/lib/libpq.lib
+
+//The Set the PostgreSQL_INCLUDE_DIR cmake cache entry to the top-level
+// directory containing the PostgreSQL include directories. E.g
+// /usr/local/include/PostgreSQL/8.4 or C:/Program Files/PostgreSQL/8.4/include
+PostgreSQL_TYPE_INCLUDE_DIR:PATH=C:/development/vcpkg/installed/x64-windows/include/server
 
 //Path to a library.
 SSL_EAY_DEBUG:FILEPATH=C:/development/vcpkg/installed/x64-windows/debug/lib/libssl.lib
@@ -491,6 +522,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_Brotli:INTERNAL=[C:/development/vcpkg/installed/x64
 FIND_PACKAGE_MESSAGE_DETAILS_Jsoncpp:INTERNAL=[C:/development/vcpkg/installed/x64-windows/include][C:/development/vcpkg/installed/x64-windows/debug/lib/jsoncpp.lib][v()]
 //Details about finding OpenSSL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[optimized;C:/development/vcpkg/installed/x64-windows/lib/libcrypto.lib;debug;C:/development/vcpkg/installed/x64-windows/debug/lib/libcrypto.lib][C:/development/vcpkg/installed/x64-windows/include][c ][v3.5.2()]
+//Details about finding PostgreSQL
+FIND_PACKAGE_MESSAGE_DETAILS_PostgreSQL:INTERNAL=[optimized;C:/development/vcpkg/installed/x64-windows/lib/libpq.lib;debug;C:/development/vcpkg/installed/x64-windows/debug/lib/libpq.lib][C:/development/vcpkg/installed/x64-windows/include][c ][v16.9()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding ZLIB
@@ -501,6 +534,14 @@ JSONCPP_INCLUDE_DIRS-ADVANCED:INTERNAL=1
 JSONCPP_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENSSL_INCLUDE_DIR
 OPENSSL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PostgreSQL_INCLUDE_DIR
+PostgreSQL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PostgreSQL_LIBRARY_DEBUG
+PostgreSQL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PostgreSQL_LIBRARY_RELEASE
+PostgreSQL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PostgreSQL_TYPE_INCLUDE_DIR
+PostgreSQL_TYPE_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //Install the dependencies listed in your manifest:
 //\n    If this is off, you will have to manually install your dependencies.
 //\n    See https://github.com/microsoft/vcpkg/tree/master/docs/specifications/manifests.md

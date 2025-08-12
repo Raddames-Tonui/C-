@@ -10,11 +10,12 @@ T add(T a, T b) {
 
 
 // Class Templates
+// Create a generic class that can store or manipulate any type.
 template <typename T>
-class Box {
+class Container {
     T value;
 public:
-    Box(T v) : value(v) {}
+    Container(T v) : value(v) {}
 
     void show() {
         cout <<"Value: " << value << endl;
@@ -22,7 +23,7 @@ public:
 
 };
 
-// Template Specialization
+// Template Specialization - Template specialization allows different logic for certain types.
 template <typename T>
 class Printer {
 public:
@@ -30,16 +31,18 @@ public:
         cout << "Generic: " << value << endl;
     }
 };
-// Specialize for string
-// SFINAE = Substitution Failure Is Not An Error.
-// It lets you select code only when types match certain criteria.
+
 template <>
 class Printer<string> {
 public:
-    void print(string value) {
+    void print(const string &value) {
         cout << "String value: " << value << endl;
     }
 };
+
+
+
+
 
 // std::enable_if and SFINAE
 template <typename T>
@@ -62,8 +65,8 @@ int main () {
 
 
     cout << "------  Class Templates ------" << endl;
-    Box<int> b1(100);
-    Box<string> b2("Box Template");
+    Container<int> b1(100);
+    Container<string> b2("Container Template");
 
     b1.show();
     b2.show();
@@ -82,3 +85,24 @@ int main () {
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

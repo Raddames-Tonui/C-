@@ -5,3 +5,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(intro intro.cpp)
 add_executable(tutorial tutorial.cpp)
+add_executable(dsa_structure dsa_structure.cpp)

@@ -14,7 +14,8 @@
 	"forward-modules-from-target-dirs" : [],
 	"include-dirs" : 
 	[
-		"C:\\development\\vcpkg\\installed\\x64-windows\\include"
+		"C:\\development\\vcpkg\\installed\\x64-windows\\include",
+		"C:\\development\\vcpkg\\installed\\x64-windows\\include\\server"
 	],
 	"language" : "CXX",
 	"linked-target-dirs" : [],

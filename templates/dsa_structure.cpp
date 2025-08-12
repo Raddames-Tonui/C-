@@ -140,7 +140,9 @@ public:
     }
 };
 
-// ------ MAIN TEST -------
+
+
+
 int main() {
 
     Stack<int> myNum;
@@ -152,7 +154,7 @@ int main() {
     myNum.remove();
     myNum.print();
 
-    Queue<string>* mystr = new Deque<string>;
+    Queue<string>* mystr = new Deque<string>();
     // Deque<string>* mystr = new Deque<string>;
     mystr->insert("Hello");
     mystr->insert("World");
@@ -166,25 +168,16 @@ int main() {
     mystr->print();
     // mystr->removeFront();
 
+    Deque<char> myDeque;
+    myDeque.insert('&');
+    myDeque.print();
+
+    Array<char>& ref = myDeque;
+    ref.print();
+    ref.remove();
+    ref.print();
+
 
     delete mystr;
 
-
-    // try {
-    //     Stack<int> st;
-    //     st.insert(10);
-    //     st.insert(20);
-    //     st.print();
-    //     cout << "Popped: " << st.remove() << endl;
-    //     cout << "Popped: " << st.remove() << endl;
-    //     cout << "Popped: " << st.remove() << endl; // will throw
-    // }
-    // catch (const CustomException& e) {
-    //     cerr << "Custom Exception: " << e.what() << endl;
-    // }
-    // catch (const exception& e) {
-    //     cerr << "Standard Exception: " << e.what() << endl;
-    // }
-    //
-    // return 0;
 }
