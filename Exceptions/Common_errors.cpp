@@ -68,6 +68,8 @@ void constructorMisuse() {
 }
 
 // ---------- OBJECT SLICING ----------
+//Happens when a derived class object (Dog)
+// is assigned to a base class object (Animal) by value.
 class Animal {
 public:
     virtual void speak() { cout << "Animal\n"; }
@@ -80,14 +82,24 @@ public:
 
 void objectSlicing() {
     Dog d;
-    Animal a = d; // Object slicing
+    Animal a = d; // Object slicing  (Only the Animal part of d is copied — the Dog-specific parts are "sliced off".)
     a.speak(); // Calls Animal::speak, not Dog::speak
+
+/** Use pointers or references to base class To Preserve Polymorphism::
+        Animal* a = new Dog();
+        a->speak(); // Outputs "Dog"
+*    ---OR ---
+        Dog d;
+        Animal& a = d; // No slicing
+        a.speak();     // Outputs "Dog"
+*/
 }
 
 // ---------- DANGLING POINTER ----------
 int* getDanglingPointer() {
     int x = 42;
-    return &x; // Returns address of local variable
+    return &x; // ❌ BAD: x is a local variable, gets destroyed after function returns
+
 }
 
 void useDanglingPointer() {
@@ -110,7 +122,7 @@ void accessViolation() {
 int main() {
     // Uncomment one at a time to see the error in action
 
-    SyntaxErrorExample s; s.sayHello();
+    // SyntaxErrorExample s; s.sayHello();
     // undeclaredIdentifier();
     // typeMismatch();
     // divideByZero();

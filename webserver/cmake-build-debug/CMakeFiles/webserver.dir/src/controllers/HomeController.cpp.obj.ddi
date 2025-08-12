@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\webserver.dir\\src\\controllers\\HomeController.cpp.obj",
+            "outputs": [
+                "C:\\development\\c++\\webserver\\cmake-build-debug\\vc140.pdb",
+                "CMakeFiles\\webserver.dir\\src\\controllers\\HomeController.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+# ninja log v6
+8	5278	7766990821314010	CMakeFiles/webserver.dir/src/main.cpp.obj.ddi	d7f0e4fec40e3553
+5293	5652	7766990874172319	CMakeFiles/webserver.dir/CXX.dd	67f0d93420f0a65a
+5293	5652	7766990874172319	C:/development/c++/webserver/cmake-build-debug/CMakeFiles/webserver.dir/CXXModules.json	67f0d93420f0a65a
+5293	5652	7766990874172319	CMakeFiles/webserver.dir/src/main.cpp.obj.modmap	67f0d93420f0a65a
+5653	37436	7766990877771515	CMakeFiles/webserver.dir/src/main.cpp.obj	2353b6767276cbba
+37436	56587	7766991195598041	webserver.exe	d448afdfc15ae3f1
+9	911	7766992950500669	CMakeFiles/webserver.dir/src/main.cpp.obj.ddi	d7f0e4fec40e3553
+1027	1090	7766992960669596	CMakeFiles/webserver.dir/CXX.dd	67f0d93420f0a65a
+1027	1090	7766992960669596	C:/development/c++/webserver/cmake-build-debug/CMakeFiles/webserver.dir/CXXModules.json	67f0d93420f0a65a
+1027	1090	7766992960669596	CMakeFiles/webserver.dir/src/main.cpp.obj.modmap	67f0d93420f0a65a
+10	840	7766993713132256	CMakeFiles/webserver.dir/src/main.cpp.obj.ddi	d7f0e4fec40e3553
+841	928	7766993721427431	CMakeFiles/webserver.dir/CXX.dd	67f0d93420f0a65a
+841	928	7766993721427431	C:/development/c++/webserver/cmake-build-debug/CMakeFiles/webserver.dir/CXXModules.json	67f0d93420f0a65a
+841	928	7766993721427431	CMakeFiles/webserver.dir/src/main.cpp.obj.modmap	67f0d93420f0a65a
+8	1055	7766994939394947	CMakeFiles/webserver.dir/src/main.cpp.obj.ddi	d7f0e4fec40e3553
+1056	1124	7766994949869258	CMakeFiles/webserver.dir/CXX.dd	67f0d93420f0a65a
+1056	1124	7766994949869258	C:/development/c++/webserver/cmake-build-debug/CMakeFiles/webserver.dir/CXXModules.json	67f0d93420f0a65a
+1056	1124	7766994949869258	CMakeFiles/webserver.dir/src/main.cpp.obj.modmap	67f0d93420f0a65a
+1125	10213	7766994950562959	CMakeFiles/webserver.dir/src/main.cpp.obj	2353b6767276cbba
+10213	12739	7766995041445445	webserver.exe	d448afdfc15ae3f1
+6	847	7766995585697046	CMakeFiles/webserver.dir/src/main.cpp.obj.ddi	d7f0e4fec40e3553
+848	910	7766995594115490	CMakeFiles/webserver.dir/CXX.dd	67f0d93420f0a65a
+848	910	7766995594115490	C:/development/c++/webserver/cmake-build-debug/CMakeFiles/webserver.dir/CXXModules.json	67f0d93420f0a65a
+848	910	7766995594115490	CMakeFiles/webserver.dir/src/main.cpp.obj.modmap	67f0d93420f0a65a
+911	7614	7766995594744107	CMakeFiles/webserver.dir/src/main.cpp.obj	2353b6767276cbba
+7614	9640	7766995661778665	webserver.exe	d448afdfc15ae3f1
