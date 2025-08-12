@@ -1,18 +1,49 @@
 #include <drogon/drogon.h>
+#include <json/json.h>
+#include <drogon/orm/Exception.h> // DrogonDbException
+
+using namespace drogon;
+using namespace drogon::orm;
 
 int main() {
-    // Create Drogon HTTP app
-    drogon::app()
-        .addListener("0.0.0.0", 9090) // Bind to port 9090
-        .registerHandler("/", // Route for root path
-            [](const drogon::HttpRequestPtr&,
-               std::function<void (const drogon::HttpResponsePtr&)>&& callback) {
-                auto resp = drogon::HttpResponse::newHttpResponse();
-                resp->setContentTypeCode(drogon::CT_TEXT_PLAIN);
-                resp->setBody("Hello World this is Raddames");
-                callback(resp);
-            })
-        .run(); // Start event loop
+    // Load settings from config.json (DB & server config)
+    app().loadConfigFile("config.json");
 
-    return 0;
+    // Route: Hello World in JSON
+    app().registerHandler("/",
+        [](const HttpRequestPtr&,
+           std::function<void(const HttpResponsePtr&)>&& callback) {
+            Json::Value json;
+            json["message"] = "Hello World this is Raddames";
+            auto resp = HttpResponse::newHttpJsonResponse(json);
+            callback(resp);
+        });
+
+    // Route: Test database connection
+    app().registerHandler("/dbtest",
+        [](const HttpRequestPtr&,
+           std::function<void(const HttpResponsePtr&)>&& callback) {
+            auto client = app().getDbClient("postgresql");
+            client->execSqlAsync(
+                "SELECT NOW();",
+                [callback](const Result &r) {
+                    Json::Value json;
+                    json["status"] = "success";
+                    json["db_time"] = r[0]["now"].as<std::string>();
+                    auto resp = HttpResponse::newHttpJsonResponse(json);
+                    callback(resp);
+                },
+                [callback](const DrogonDbException &e) {
+                    Json::Value json;
+                    json["status"] = "error";
+                    json["message"] = e.base().what();
+                    auto resp = HttpResponse::newHttpJsonResponse(json);
+                    resp->setStatusCode(k500InternalServerError);
+                    callback(resp);
+                }
+            );
+        });
+
+    // Start Drogon server
+    app().run();
 }
