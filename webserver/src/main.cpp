@@ -1,13 +1,22 @@
-#include <drogon/drogon.h>
 #include <json/json.h>
-#include <libpq-fe.h> 
-
-#include <string>
-#include <iostream>
+#include <drogon/drogon.h>
+#include <libpq-fe.h>   // PostgreSQL C client library (libpq)
 
 int main() {
     drogon::app().loadConfigFile("../config.json");
 
+    drogon::app().registerHandler("/",
+     [](const drogon::HttpRequestPtr&,
+        std::function<void(const drogon::HttpResponsePtr&)>&& callback) {
+
+         Json::Value json;
+         json["message"] = "Welcome to Drogon";
+
+         auto resp = drogon::HttpResponse::newHttpJsonResponse(json);
+         callback(resp);
+     });
+
+    //   /pupils route
     drogon::app().registerHandler("/pupils",
         [](const drogon::HttpRequestPtr&,
            std::function<void(const drogon::HttpResponsePtr&)>&& callback) {
@@ -25,9 +34,8 @@ int main() {
                 return;
             }
 
-            // Your query
             const char *sql =
-                "SELECT p.pupil_firstname, p.pupil_lastname, c.class_name "
+                "SELECT concat(p.pupil_firstname, p.pupil_lastname), c.class_name "
                 "FROM pupils p "
                 "INNER JOIN classes c ON p.class_id = c.class_id "
                 "ORDER BY pupil_firstname DESC;";
@@ -44,7 +52,6 @@ int main() {
                 return;
             }
 
-            // Build JSON response from result rows
             Json::Value json;
             Json::Value pupils(Json::arrayValue);
 

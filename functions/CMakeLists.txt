@@ -3,5 +3,7 @@ project(functions)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(main main.cpp)
-add_executable(functions functions.cpp)
+add_executable(functions
+        functions.cpp
+        lambda_functions.cpp
+)

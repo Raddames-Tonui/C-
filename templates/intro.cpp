@@ -8,6 +8,11 @@ T add(T a, T b) {
     return a+b;
 }
 
+template <typename T>
+auto add(T a, T b) {
+    return a+b;
+}
+
 
 // Class Templates
 // Create a generic class that can store or manipulate any type.

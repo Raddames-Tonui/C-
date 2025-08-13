@@ -9,5 +9,5 @@ add_executable(webserver
 
 find_package(Drogon REQUIRED)
 find_package(PostgreSQL REQUIRED)
-target_link_libraries(webserver PRIVATE Drogon::Drogon  PostgreSQL::PostgreSQL)
 
+target_link_libraries(webserver PRIVATE Drogon::Drogon PostgreSQL::PostgreSQL)
