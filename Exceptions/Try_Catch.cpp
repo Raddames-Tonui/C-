@@ -63,9 +63,10 @@ void getReadyForClass() throw(ShoppingListTooSmallException, OutOfMoneyException
     makeCookiesForTA();   // Might throw BurntCookiesException
 }
 
-// Main with try-catch
 int main() {
     try {
+        // getReadyForClass();
+        // makeCookiesForTA();
         getReadyForClass();
     } catch (const ShoppingListTooSmallException& e) {
         cerr << "Error: " << e.what() << endl;

@@ -72,8 +72,18 @@ int main() {
     cout << "v2: "; print(v2); // expected: 10 30
 
 
-    // -------Lambda capturing a pointer -------------
     int x = 10;
+
+    // -------Lambda capturing a Value -------------
+    // Original doesn't change
+    auto lambdaval = [=] (int x) {
+        cout << "By Value: " << x +2 << endl;
+    };
+    lambdaval(x);
+    cout << "Original: "<< x << endl;
+
+    // -------Lambda capturing a pointer -------------
+    // Changes original value
     int *ptr = &x;
 
     auto lambdaPtr= [ptr]() {
@@ -100,6 +110,7 @@ int main() {
     };
     changePtr();
     cout << "[ptr, y]: "<< *ptr << endl; // prints 25
+
     auto changePtrByRef = [&ptr, y]() mutable {
         ptr = &y;
     };

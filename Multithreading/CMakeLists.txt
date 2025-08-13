@@ -6,5 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(multithreading
         multithreading.cpp
         thread_synchronization.cpp
+        ./concurrency/concurrency.cpp
 )
 

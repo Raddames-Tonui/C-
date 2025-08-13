@@ -73,11 +73,13 @@ void constructorMisuse() {
 class Animal {
 public:
     virtual void speak() { cout << "Animal\n"; }
+    virtual ~Animal();
 };
 
 class Dog : public Animal {
 public:
     void speak() override { cout << "Dog\n"; }
+    ~Dog() override { cout << "~Dog\n"; }
 };
 
 void objectSlicing() {
@@ -98,7 +100,7 @@ void objectSlicing() {
 // ---------- DANGLING POINTER ----------
 int* getDanglingPointer() {
     int x = 42;
-    return &x; // ❌ BAD: x is a local variable, gets destroyed after function returns
+    return &x; // BAD: x is a local variable, gets destroyed after function returns
 
 }
 
@@ -120,7 +122,7 @@ void accessViolation() {
 
 // ---------- MAIN ----------
 int main() {
-    // Uncomment one at a time to see the error in action
+    // Uncomment
 
     // SyntaxErrorExample s; s.sayHello();
     // undeclaredIdentifier();
